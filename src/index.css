@@ -1,13 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+
+:root {
+  /* colors */
+  --black: hsl(0, 0%, 0%);
+  --black2: hsl(0, 0%, 6%);
+  --white: hsl(0, 0%, 100%);
+  --white2: hsl(0, 0%, 95%);
+  --white3: hsl(0, 0%, 98%);
+  --orange: hsl(22, 65%, 57%);
+  --orange2: hsl(21, 94%, 75%);
+
+  /* font */
+  --manrope: 'Manrope', sans-serif;
+
+  /* font-size */
+  --fs1: 56px;
+  --fs2: 40px;
+  --fs2_5: 36px;
+  --fs3: 32px;
+  --fs4: 28px;
+  --fs5: 24px;
+  --fs6: 18px;
+  --fs7: 15px;
+  --fs8: 14px;
+  --fs9: 13px;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--manrope);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+/* buttons */
+button {
+  z-index: 10;
+}
+
+.btn {
+  border: 0;
+  background-color: var(--orange);
+  padding: 0;
+  display: flex;
+  margin: 24px auto 0;
+}
+
+.btn-link, .btn-add-cart {
+  color: var(--white);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 15px 31px;
+}
+
+.btn-black {
+  border: 1px solid var(--black);
+  padding: 0;
+  display: flex;
+  margin: 24px auto 0;
+  background-color: transparent;
+}
+
+.btn-black:hover {
+  background-color: var(--black);
+}
+
+.btn-black > .btn-link {
+  color: var(--black);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-black:hover > .btn-link {
+  color: var(--white);
+}
+
+.btn-transparent {
+  border: 0;
+  padding: 0;
+  display: flex;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+.btn-transparent > .btn-link {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--black);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  padding: 0;
+  margin-bottom: 24px;
+}
+
+/* class from design */
+
+.h3 {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1.28571px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.body-text {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.outline {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: var(--white);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.overline {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 32px;
 }

@@ -1,0 +1,152 @@
+.product-section {
+  /*outline: 1px solid red;*/
+  width: 327px;
+  margin: auto;
+}
+
+.product-header {
+  height: 327px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.product-image {
+  height: 100%;
+}
+
+.product-title {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.product-description {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--black);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.product-price {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 1.28571px;
+  text-transform: uppercase;
+  color: var(--black);
+}
+
+.product-btn__wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.btn-amount {
+  background-color: var(--white3);
+  display: flex;
+  width: 120px;
+  height: 48px;
+  align-items: center;
+}
+
+.btn-amount__operator {
+  display: flex;
+  flex-grow: 1;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  height: inherit;
+  padding: 0;
+  font-weight: 700;
+  color: black;
+  opacity: 0.25;
+}
+
+.btn-amount__number {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  display: flex;
+  flex-grow: 1;
+}
+
+.btn-amount__number > span, .btn-amount__operator >span {
+  margin: auto;
+}
+
+.product-features {
+
+}
+
+.product-features__title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0.857143px;
+  text-transform: uppercase;
+}
+
+.product-features__text {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--black);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.product-includes {
+  margin-top: 88px;
+}
+
+.product-includes__qty {
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 25px;
+}
+
+.product-includes__item {
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 25px;
+  color: var(--black);
+  mix-blend-mode: normal;
+  opacity: 0.5;
+  margin-left: 24px;
+}
+
+.product-gallery {
+  margin-top: 88px;
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.product-gallery__1, .product-gallery__2 {
+  width: 327px;
+  height: 174px;
+}
+
+.product-gallery__3 {
+  width: 327px;
+  height: 368px;
+}
+
+.product-gallery__1 > img,
+.product-gallery__2 > img,
+.product-gallery__3 > img {
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

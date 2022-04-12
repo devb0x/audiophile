@@ -1,0 +1,20 @@
+.hero-header {
+  height: 510px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+}
+
+.hero-wrapper {
+  width: 90%;
+  margin: auto;
+  /*outline: 1px solid red;*/
+}
+
+.hero-text {
+  text-align: center;
+  color: var(--white);
+  opacity: .75;
+}

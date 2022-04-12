@@ -1,0 +1,59 @@
+/*button {*/
+/*  z-index: 10;*/
+/*}*/
+
+/*.btn {*/
+/*  border: 0;*/
+/*  background-color: var(--orange);*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  margin: 24px auto 0;*/
+/*}*/
+
+/*.btn-link {*/
+/*  color: var(--white);*/
+/*  font-weight: 700;*/
+/*  font-size: 13px;*/
+/*  line-height: 18px;*/
+/*  letter-spacing: 1px;*/
+/*  text-transform: uppercase;*/
+/*  padding: 15px 31px;*/
+/*}*/
+
+/*.btn-black {*/
+/*  border: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  margin: 24px auto 0;*/
+/*  background-color: var(--black);*/
+/*}*/
+
+/*.btn-black > .btn-link {*/
+/*  color: var(--white);*/
+/*  font-weight: 700;*/
+/*  font-size: 13px;*/
+/*  line-height: 18px;*/
+/*  letter-spacing: 1px;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+/*.btn-transparent {*/
+/*  border: 0;*/
+/*  padding: 0;*/
+/*  display: flex;*/
+/*  margin: 0 auto;*/
+/*  background-color: transparent;*/
+/*}*/
+
+/*.btn-transparent > .btn-link {*/
+/*  font-weight: 700;*/
+/*  font-size: 13px;*/
+/*  line-height: 18px;*/
+/*  letter-spacing: 1px;*/
+/*  text-transform: uppercase;*/
+/*  color: var(--black);*/
+/*  mix-blend-mode: normal;*/
+/*  opacity: 0.5;*/
+/*  padding: 0;*/
+/*  margin-bottom: 24px;*/
+/*}*/

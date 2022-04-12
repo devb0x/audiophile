@@ -1,0 +1,132 @@
+.products-home {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 120px;
+  gap: 24px;
+}
+
+.card {
+  margin-inline: auto;
+  width: 327px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card-big {
+  height: 600px;
+  background-color: var(--orange);
+}
+
+.card-big > img {
+  height: 207px;
+  width: 172px;
+  margin: 55px auto 0;
+}
+
+.card-big > .card-title {
+  z-index: 10;
+  font-size: var(--fs2_5);
+  color: var(--white);
+  font-weight: 700;
+  line-height: 40px;
+  text-align: center;
+  letter-spacing: 1.28571px;
+  text-transform: uppercase;
+  margin: 32px auto 0;
+}
+
+.card-big__text {
+  width: 90%;
+  margin: 24px auto 0;
+  font-weight: 500;
+  font-size: var(--fs7);
+  line-height: 25px;
+  text-align: center;
+  color: var(--white);
+  opacity: .75;
+}
+
+.card-sm {
+  position: relative;
+  height: 320px;
+  width: 327px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  justify-content: center;
+}
+
+.card-sm > .card-title__sm {
+  width: fit-content;
+  margin-left: 24px;
+  margin-bottom: 32px;
+  margin-top: 0;
+  font-weight: 700;
+  font-size: var(--fs4);
+  line-height: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.card-sm > button {
+  margin-left: 24px;
+  margin-top: 0;
+}
+
+.card-title__black {
+  color: var(--black);
+}
+
+.card-md {
+  height: 424px;
+  width: 327px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-md__header {
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card-md__header > img {
+  height: 100%;
+}
+
+.card-md__container {
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--white2);
+}
+
+.card-md__container > button, .card-md__container > .card-title__md {
+  margin-top: 12px;
+  margin-left: 24px;
+  width: fit-content;
+}
+
+.card-md__container > .card-title__md {
+  font-weight: 700;
+  font-size: var(--fs4);
+  line-height: 38px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 41px;
+  margin-bottom: 32px;
+}
+
+/* TODO CLEAN THIS SHIT AND ADD POINTER CUROSR BTN BLACK*/
+
+.pattern {
+  position: absolute;
+}
+
+.pattern-img {
+  transform: translate(-20%, -20%);
+  height: 558px;
+  width: 558px;
+}
