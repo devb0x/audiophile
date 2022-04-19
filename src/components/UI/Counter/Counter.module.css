@@ -1,3 +1,38 @@
 .counter {
-  outline: 1px solid red;
+
+}
+
+.btn-amount {
+  background-color: var(--white2);
+  display: flex;
+  width: 120px;
+  height: 48px;
+  align-items: center;
+}
+
+.btn-amount__operator {
+  display: flex;
+  flex-grow: 1;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  height: inherit;
+  padding: 0;
+  font-weight: 700;
+  color: black;
+  opacity: 0.25;
+}
+
+.btn-amount__number {
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  display: flex;
+  flex-grow: 1;
+}
+
+.btn-amount__number > span, .btn-amount__operator >span {
+  margin: auto;
 }

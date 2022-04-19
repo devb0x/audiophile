@@ -1,4 +1,4 @@
-import React, {Fragment} from "react"
+import React, {Fragment, useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
 import classes from './Cart.module.css'
@@ -6,6 +6,7 @@ import {cartActions} from "../../../store/cartSlice"
 import Button from "../Button/Button"
 import {Link} from "react-router-dom"
 import {uiActions} from "../../../store/uiSlice"
+import store from "../../../store"
 
 const Cart = () => {
   const dispatch = useDispatch()
@@ -39,6 +40,10 @@ const Cart = () => {
     ))
     dispatch(cartActions.updateTotalPrice())
   }
+
+  useEffect(() => {
+    console.log(store.getState())
+  })
 
   return (
     <Fragment>
@@ -93,13 +98,13 @@ const Cart = () => {
           <div className={`${classes['cart-footer__total-number']}`}>$ {totalPrice}</div>
 
           <Button class='btn' style={{width: '100%' }}>
-            <Link className={`btn-link`} to={`/homepage`} style={{width: '100%' }}>checkout</Link>
+            <Link onClick={toggleCartHandler} className={`btn-link`} to={`/checkout`} style={{width: '100%' }}>checkout</Link>
           </Button>
         </footer>
 
       </div>
-
       <div className={`${classes['background']}`} onClick={toggleCartHandler}/>
+
     </Fragment>
   )
 }

@@ -19,13 +19,16 @@
   background-color: var(--orange);
 }
 
-.card-big > img {
+.card-big__img {
   height: 207px;
   width: 172px;
   margin: 55px auto 0;
+  background-image: url('../../assets/home/mobile/image-speaker-zx9.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.card-big > .card-title {
+.card-big__container > .card-title {
   z-index: 10;
   font-size: var(--fs2_5);
   color: var(--white);
@@ -52,6 +55,7 @@
   position: relative;
   height: 320px;
   width: 327px;
+  background-image: url('../../assets/home/mobile/image-speaker-zx7.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: right;
@@ -86,14 +90,14 @@
   justify-content: space-between;
 }
 
-.card-md__header {
+.card-md__img {
   height: 200px;
   border-radius: 8px;
   overflow: hidden;
-}
-
-.card-md__header > img {
-  height: 100%;
+  background-image: url('../../assets/home/mobile/image-earphones-yx1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .card-md__container {
@@ -119,14 +123,160 @@
   margin-bottom: 32px;
 }
 
-/* TODO CLEAN THIS SHIT AND ADD POINTER CUROSR BTN BLACK*/
-
 .pattern {
   position: absolute;
+  overflow: hidden;
+  width: 327px;
 }
 
 .pattern-img {
-  transform: translate(-20%, -20%);
+  transform: translate(-21%, -20%);
   height: 558px;
   width: 558px;
+}
+
+@media screen and (min-width: 768px) {
+  .products-home {
+    width: 689px;
+    margin-inline: auto;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card-big {
+    height: 720px;
+  }
+
+  .card-big__img {
+    height: 237px;
+    width: 197px;
+    background-image: url('../../assets/home/tablet/image-speaker-zx9.png');
+  }
+
+  .card-big__container > .card-title {
+    font-size: 56px;
+    line-height: 58px;
+    letter-spacing: 2px;
+    width: 349px;
+  }
+
+  .card-big__text {
+    width: 349px;
+  }
+
+  .card-sm {
+    width: 100%;
+    background-image: url('../../assets/home/tablet/image-speaker-zx7.jpg');
+  }
+
+  .card-sm > .card-title__sm {
+    margin-left: 62px;
+  }
+
+  .card-sm > button {
+   margin-left: 62px;
+  }
+
+  .card-md {
+   height: 320px;
+   width: 100%;
+   flex-direction: row;
+  }
+
+  .card-md__img {
+   height: 320px;
+   width: 339px;
+   background-image: url('../../assets/home/tablet/image-earphones-yx1.jpg');
+  }
+
+  .card-md__container {
+   height: 320px;
+   width: 339px;
+  }
+
+  .card-md__container > .card-title__md {
+     padding-top: 101px;
+     margin-top: 0;
+   }
+
+  .pattern {
+    width: 689px;
+  }
+
+  .pattern-img {
+    transform: translate(-13%, -35%);
+    height: 944px;
+    width: 944px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .products-home {
+    width: 1110px;
+  }
+
+  .card-big {
+    height: 560px;
+    position: relative;
+  }
+
+  .card-big__img {
+    height: 493px;
+    width: 410px;
+    margin: 80px auto 0 117px;
+    background-image: url('../../assets/home/desktop/image-speaker-zx9.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+  }
+
+  .card-big__container {
+    width: 349px;
+    margin-left: 666px;
+    margin-top: 133px;
+  }
+
+  .card-big__container > .card-title {
+    text-align: left;
+  }
+
+  .card-big__text {
+    text-align: left;
+  }
+
+  .card-big__container > button {
+    margin-left: 0;
+  }
+
+  .card-sm {
+    background-image: url('../../assets/home/desktop/image-speaker-zx7.jpg');
+  }
+
+  .card-md {
+    width: 1110px;
+    gap: 30px;
+  }
+
+  .card-md__img {
+    width: 540px;
+    background-image: url('../../assets/home/desktop/image-earphones-yx1.jpg');
+  }
+
+  .card-md__container {
+    width: 540px;
+  }
+
+  .card-md__container > .card-title__md, .card-md__container > button {
+    margin-left: 95px;
+  }
+
+  .pattern {
+    width: unset;
+  }
+
+  .pattern-img {
+    transform: translate(-15%, -4%);
+  }
 }

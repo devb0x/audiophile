@@ -4,6 +4,7 @@
   /* colors */
   --black: hsl(0, 0%, 0%);
   --black2: hsl(0, 0%, 6%);
+  --black3: #191919;
   --white: hsl(0, 0%, 100%);
   --white2: hsl(0, 0%, 95%);
   --white3: hsl(0, 0%, 98%);
@@ -24,6 +25,20 @@
   --fs7: 15px;
   --fs8: 14px;
   --fs9: 13px;
+
+  /* width % */
+  --mobile: 84.5333%;
+  --tablet: 89.7135%;
+  --desktop: 77.0833%;
+
+  /* footer icons */
+  --facebookIcon: url(./assets/shared/desktop/icon-facebook.svg);
+  --twitterIcon: url(./assets/shared/desktop/icon-twitter.svg);
+  --instagramIcon: url(./assets/shared/desktop/icon-instagram.svg);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -31,6 +46,7 @@ body {
   font-family: var(--manrope);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FAFAFA;
 }
 
 ul {
@@ -38,15 +54,14 @@ ul {
   padding: 0;
 }
 
-
-
 a {
   text-decoration: none;
 }
 
 /* buttons */
 button {
-  z-index: 10;
+  position: relative;
+  z-index: 1;
 }
 
 .btn {
@@ -55,6 +70,11 @@ button {
   padding: 0;
   display: flex;
   margin: 24px auto 0;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--orange2);
 }
 
 .btn-link, .btn-add-cart {
@@ -65,6 +85,21 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 15px 31px;
+}
+
+.btn-black__plain {
+  border: 1px solid var(--black);
+  padding: 0;
+  display: flex;
+  margin: 24px auto 0;
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.btn-black__plain:hover {
+  background-color: #4C4C4C;
+  border: 1px solid #4C4C4C;
+
 }
 
 .btn-black {
@@ -98,19 +133,27 @@ button {
   display: flex;
   margin: 0 auto;
   background-color: transparent;
-}
 
-.btn-transparent > .btn-link {
   font-weight: 700;
   font-size: 13px;
   line-height: 18px;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--black);
-  mix-blend-mode: normal;
   opacity: 0.5;
-  padding: 0;
-  margin-bottom: 24px;
+}
+
+.btn-transparent:hover {
+  cursor: pointer;
+  color: red;
+}
+
+
+
+@media screen and (min-width: 1440px) {
+  .btn-transparent > .btn-link {
+    margin-bottom: 30px;
+  }
 }
 
 /* class from design */
@@ -151,4 +194,14 @@ button {
   text-transform: uppercase;
   color: var(--orange);
   margin-top: 32px;
+}
+
+/* hide arrow in input of type number for chrome & firefox */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }

@@ -9,6 +9,7 @@ import ProductPage from "./components/Pages/ProductPage"
 import Cart from "./components/UI/Cart/Cart"
 import {useSelector} from "react-redux"
 import Footer from "./components/Footer/Footer"
+import CheckoutPage from "./components/Pages/CheckoutPage"
 
 function App() {
   const showCart = useSelector(state => state.ui.cartIsVisible)
@@ -40,6 +41,12 @@ function App() {
             exact path={'/:category/:slug'}
             element={
               <ProductPage />
+            }
+          />
+          <Route
+            exact path={'/checkout'}
+            element={
+              <CheckoutPage />
             }
           />
         </Routes>

@@ -15,7 +15,8 @@
 }
 
 .container {
-  width: 327px;
+  position: relative;
+  width: var(--mobile);
   margin-inline: auto;
   display: flex;
   flex-direction: column;
@@ -42,6 +43,12 @@
   opacity: 0.5;
 }
 
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
 .nav-list__item-link {
   font-weight: 700;
   font-size: 13px;
@@ -49,6 +56,10 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--white);
+}
+
+.nav-list__item-link:hover {
+  color: var(--orange);
 }
 
 .footer-social {
@@ -59,4 +70,102 @@
   display: flex;
   margin-inline: auto;
   gap: 16px;
+  align-items: center;
+}
+
+.footer-social__list > li {
+  display: flex;
+}
+
+.footer-social__list-icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  mask-size: contain;
+}
+
+.footer-social__list-icon:hover {
+  background-color: var(--orange);
+}
+
+.fb {
+  mask: var(--facebookIcon);
+  mask-repeat: no-repeat;
+  background-color: var(--white);
+}
+.twitter {
+  mask: var(--twitterIcon);
+  mask-repeat: no-repeat;
+  background-color: var(--white);
+  margin-top: 4px;
+}
+.insta {
+  mask: var(--instagramIcon);
+  mask-repeat: no-repeat;
+  background-color: var(--white);
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    text-align: left;
+    position: relative;
+  }
+
+  .footer-border {
+    outline: 2px solid var(--orange);
+    left: 0;
+    transform: translateX(0%);
+  }
+
+  .container {
+    width: 689px;
+    position: relative;
+  }
+
+  .brand {
+    margin-left: 0;
+  }
+
+  .footer-list {
+    flex-direction: row;
+    gap: 34px;
+  }
+
+  .footer-wrapper {
+    flex-direction: row;
+  }
+
+  .footer-copyright {
+    width: fit-content;
+    display: flex;
+    margin-block: auto;
+  }
+
+  .footer-social {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    width: 1110px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .brand > img {
+    object-fit: contain;
+  }
+
+  .footer-text {
+    width: 540px;
+  }
+
+  .footer-wrapper {
+    width: 100%;
+  }
+
+  .footer-social {
+    transform: translateY(-150%);
+  }
 }

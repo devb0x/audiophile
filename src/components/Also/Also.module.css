@@ -1,5 +1,5 @@
 .also-section {
-  width: 327px;
+  width: var(--mobile);
   margin: auto;
 }
 
@@ -38,4 +38,46 @@
   letter-spacing: 1.71429px;
   text-transform: uppercase;
   color: var(--black);
+}
+
+@media screen and (min-width: 768px) {
+  .also-section {
+    width: 691px;
+    margin-bottom: 25vh;
+  }
+  .also-title {
+    font-size: 32px;
+    letter-spacing: 1.14286px;
+    margin-bottom: 56px;
+  }
+
+  .also-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 11px;
+  }
+
+  .also-item__img {
+    height: 318px;
+    width: 223px;
+  }
+
+  .also-item__name {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .also-section {
+    width: 1110px;
+  }
+  .also-title {
+    letter-spacing: 1.14286px;
+    margin-bottom: 64px;
+  }
+
+  .also-item__img {
+    width: 350px;
+    height: 318px;
+  }
 }

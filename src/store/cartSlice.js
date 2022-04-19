@@ -1,7 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit"
 
-import products from '../../src/data.json'
-
 const initialCartState = {
   items: [],
   totalQuantity: 0,
@@ -40,7 +38,7 @@ const cartSlice = createSlice({
     decreaseAmountByOne: function(state, action) {
       const existingItem = state.items.find((item) => item.id === action.payload.id)
 
-      if (existingItem) {
+      if (existingItem && existingItem.quantity > 0) {
         existingItem.quantity = existingItem.quantity - action.payload.quantity
         state.totalQuantity = state.totalQuantity - action.payload.quantity
       }
