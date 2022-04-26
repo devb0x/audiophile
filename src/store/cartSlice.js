@@ -43,11 +43,11 @@ const cartSlice = createSlice({
         state.totalQuantity = state.totalQuantity - action.payload.quantity
       }
     },
-    updateTotalPrice: function (state, action) {
+    updateTotalPrice: function(state, action) {
       let total = 0
       state.items.map(el => (total = total + (el.quantity * el.price)) )
       state.totalPrice = total
-    }
+    },
   }
 })
 

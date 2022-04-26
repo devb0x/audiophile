@@ -93,14 +93,14 @@
     margin-top: 160px;
   }
 
+  li:nth-child(even) > .product-card {
+    flex-direction: row-reverse;
+  }
+
   .product-card {
     display: flex;
     gap: 125px;
     height: 560px;
-  }
-
-  .odd {
-    flex-direction: row-reverse;
   }
 
   .product-thumb {
@@ -111,10 +111,15 @@
   .product-text__wrapper {
     text-align: left;
     width: 445px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
   }
 
   .product-title {
     margin-inline: 0;
+    margin-block: 0;
   }
 
   .product-description {
@@ -123,5 +128,7 @@
 
   .product-text__wrapper > button {
     margin-left: 0;
+    margin-top: 0;
   }
 }
+

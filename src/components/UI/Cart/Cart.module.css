@@ -181,3 +181,9 @@
     transform: translateX(47%);
   }
 }
+
+.link-disabled {
+  pointer-events: none;
+  cursor: initial;
+  background-color: var(--orange2);
+}

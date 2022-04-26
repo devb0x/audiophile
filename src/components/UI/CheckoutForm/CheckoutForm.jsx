@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from "react"
+import React, {Fragment, useEffect, useState} from "react"
 import {Link} from "react-router-dom"
 
 import {useForm} from "react-hook-form"
@@ -6,7 +6,12 @@ import {useForm} from "react-hook-form"
 import classes from './CheckoutForm.module.css'
 import Summary from "../Summary/Summary"
 
+import iconCash from '../../../assets/shared/desktop/icon-cash.svg'
+import Modal from "../Modal/Modal"
+import {current} from "@reduxjs/toolkit"
+
 const CheckoutForm = () => {
+  const [showModal, setShowModal] = useState(false)
   const [paymentMethod, setPaymentMethod] = useState('')
 
   const paymentSelected = (e) => {
@@ -16,9 +21,45 @@ const CheckoutForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setError,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  } = useForm({
+    mode: 'onChange',
+    defaultValues: {
+      name: '',
+      email: '',
+      phone: '',
+      shippingAddress: '',
+      zipCode: '',
+      city: '',
+      country: '',
+      paymentMethod: '',
+      eMoneyNumber: '',
+      eMoneyPin: ''
+    }
+  });
+  const onSubmit = (data) => {
+    // console.log(data);
+    document.activeElement.blur()
+    setShowModal(true)
+  }
+  //   console.warn(errors)
+  //
+  useEffect(() => {
+    const subscription = watch((value, { name, type}) => {
+      console.log(value, name, type)
+      console.warn(errors?.name)
+    })
+
+    return () => (
+      subscription.unsubscribe()
+    )
+  }, [watch])
+
+  console.log(errors.name?.message)
+
+  // console.log(watch(['name', 'email']))
 
   return (
     <Fragment>
@@ -40,16 +81,41 @@ const CheckoutForm = () => {
             Billing Details
           </h2>
           <div className={`${classes['form-div']}`}>
-            <label className={`${classes['form-label']}`}>
-              Name
-            </label>
-            <input type="text" {...register('name')} />
+            <div className={`${classes['form-div__wrapper']}`}>
+              <label className={errors?.name ? `${classes['form-label']} ${classes['form-label__invalid']}` : `${classes['form-label']}`}>
+                Name
+              </label>
+              {errors.name &&
+                <span role="alert" className={`${classes['form-error']}`}>{errors?.name?.message}</span>
+              }
+            </div>
+            <input
+              className={errors?.name ? `${classes['invalid']}` : '' }
+              type="text" {...register('name', {required: "This field is required"} )}
+            />
           </div>
           <div className={`${classes['form-div']}`}>
-            <label className={`${classes['form-label']}`}>
-              Email Address
-            </label>
-            <input type="email" {...register('email')}/>
+
+            <div style={{justifyContent: 'space-between', display: 'flex'}}>
+              <label className={errors?.email ? `${classes['form-label']} ${classes['form-label__invalid']}` : `${classes['form-label']}`}>
+                Email Address
+              </label>
+              {errors.email &&
+                <span role="alert" className={`${classes['form-error']}`}>{errors?.email?.message}</span>
+              }
+            </div>
+
+            <input
+              className={errors?.email ? `${classes['invalid']}` : '' }
+              type="email"
+              {...register('email', {
+                required: 'Email is required',
+                pattern: {
+                  value: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: 'Wrong format',
+                },
+              })}
+            />
           </div>
           <div className={`${classes['form-div']}`}>
             <label className={`${classes['form-label']}`}>
@@ -97,14 +163,22 @@ const CheckoutForm = () => {
                 className={`${classes['form-label']} ${classes['form-label__radio']}`}
                 onChange={paymentSelected}
               >
-              <input value="eMoney" type="radio" {...register('paymentMethod')} />
+              <input
+                value="eMoney"
+                type="radio"
+                {...register('paymentMethod')}
+              />
                 e-Money
             </label>
             <label
               className={`${classes['form-label']} ${classes['form-label__radio']}`}
               onChange={paymentSelected}
             >
-              <input value="cash" type="radio" {...register('paymentMethod')} />
+              <input
+                value="cash"
+                type="radio"
+                {...register('paymentMethod')}
+              />
                 Cash on Delivery
             </label>
           </div>
@@ -127,8 +201,12 @@ const CheckoutForm = () => {
           }
           {paymentMethod === 'cash' &&
             <Fragment>
-              <div>
-                text cash payment with icon
+              <div className={`${classes['cash-delivery']}`}>
+                <img src={iconCash} alt=""/>
+                <p className={`${classes['cash-delivery__text']}`}>
+                  The ‘Cash on Delivery’ option enables you to pay in cash when our delivery courier arrives at your
+                  residence. Just make sure your address is correct so that your order will not be cancelled.
+                </p>
               </div>
             </Fragment>
           }
@@ -136,6 +214,10 @@ const CheckoutForm = () => {
         </form>
 
         <Summary />
+
+        {showModal &&
+          <Modal />
+        }
 
       </section>
     </Fragment>

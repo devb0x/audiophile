@@ -36,19 +36,12 @@ const ProductsCategory = () => {
 
       <ul className={`${classes['section-list']}`}>
         {products.map((el, index) => (
-          <li key={el.id}>
-            <div
-              className={
-                index % 2 ?
-                  `${classes['product-card']} ${classes['odd']}` :
-                  `${classes['product-card']}`
-              }
-            >
+          <li key={index}>
+            <div className={`${classes['product-card']}`}>
               {device === 'mobile' &&
               <img
                 className={`${classes['product-thumb']}`}
                 src={`../../.${el.categoryImage.mobile}`}
-                // src={`../../.${el.image}${device}`}
                 alt={el.name}
               />
               }

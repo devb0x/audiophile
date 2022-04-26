@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect} from "react"
+import React, {Fragment, useEffect, useState} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
 import classes from './Cart.module.css'
@@ -10,10 +10,11 @@ import store from "../../../store"
 
 const Cart = () => {
   const dispatch = useDispatch()
-
   const cartItems = useSelector(state => state.cart.items)
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const totalPrice = useSelector(state => state.cart.totalPrice)
+
+  const [isDisabled, setIsDisabled] = useState(true)
 
   const toggleCartHandler = () => {
     dispatch(uiActions.toggle())
@@ -42,8 +43,12 @@ const Cart = () => {
   }
 
   useEffect(() => {
-    console.log(store.getState())
-  })
+    if (totalQuantity < 1) {
+      setIsDisabled(true)
+    } else {
+      setIsDisabled(false)
+    }
+  }, [totalQuantity])
 
   return (
     <Fragment>
@@ -97,8 +102,15 @@ const Cart = () => {
           <div className={`${classes['cart-footer__total']}`}>total</div>
           <div className={`${classes['cart-footer__total-number']}`}>$ {totalPrice}</div>
 
-          <Button class='btn' style={{width: '100%' }}>
-            <Link onClick={toggleCartHandler} className={`btn-link`} to={`/checkout`} style={{width: '100%' }}>checkout</Link>
+          <Button class='btn' style={{width: '100%' }} >
+            <Link
+              onClick={toggleCartHandler}
+              className={ isDisabled ? `btn-link ${classes['link-disabled']}`: `btn-link`}
+              to={`/checkout`}
+              style={{width: '100%'}}
+            >
+              checkout
+            </Link>
           </Button>
         </footer>
 
