@@ -23,6 +23,11 @@
   opacity: 0.25;
 }
 
+.btn-amount__operator:hover {
+  color: var(--orange);
+  opacity: 1;
+}
+
 .btn-amount__number {
   font-weight: 700;
   font-size: 13px;

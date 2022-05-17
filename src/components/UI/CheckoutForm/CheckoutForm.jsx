@@ -8,7 +8,6 @@ import Summary from "../Summary/Summary"
 
 import iconCash from '../../../assets/shared/desktop/icon-cash.svg'
 import Modal from "../Modal/Modal"
-import {current} from "@reduxjs/toolkit"
 
 const CheckoutForm = () => {
   const [showModal, setShowModal] = useState(false)
@@ -40,26 +39,21 @@ const CheckoutForm = () => {
     }
   });
   const onSubmit = (data) => {
-    // console.log(data);
+    console.log(data);
     document.activeElement.blur()
     setShowModal(true)
   }
-  //   console.warn(errors)
-  //
+
   useEffect(() => {
     const subscription = watch((value, { name, type}) => {
-      console.log(value, name, type)
-      console.warn(errors?.name)
+      // console.log(value, name, type)
+      // console.warn(errors?.name)
     })
 
     return () => (
       subscription.unsubscribe()
     )
   }, [watch])
-
-  console.log(errors.name?.message)
-
-  // console.log(watch(['name', 'email']))
 
   return (
     <Fragment>

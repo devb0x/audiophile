@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react"
-import {Link, useParams} from "react-router-dom"
+import {Link, useParams, useNavigate} from "react-router-dom"
 
 import {useSelector} from "react-redux"
 
@@ -10,6 +10,7 @@ import useWindowDimensions from "../../utils/window"
 
 const ProductsCategory = () => {
   let {width} = useWindowDimensions()
+  let navigate = useNavigate()
   let {category} = useParams()
 
   const [device, setDevice] = useState('')
@@ -27,6 +28,10 @@ const ProductsCategory = () => {
     if (width > 1439) {
       setDevice('desktop')
     }
+    if (products.length === 0) {
+      console.warn('wrong page, redirection to homepage')
+      navigate('/homepage')
+    }
   }, [width, device])
 
   return (
@@ -38,27 +43,11 @@ const ProductsCategory = () => {
         {products.map((el, index) => (
           <li key={index}>
             <div className={`${classes['product-card']}`}>
-              {device === 'mobile' &&
               <img
                 className={`${classes['product-thumb']}`}
                 src={`../../.${el.categoryImage.mobile}`}
                 alt={el.name}
               />
-              }
-              {device === 'tablet' &&
-                <img
-                  className={`${classes['product-thumb']}`}
-                  src={`../../.${el.categoryImage.tablet}`}
-                  alt={el.name}
-                />
-              }
-              {device === 'desktop' &&
-                <img
-                  className={`${classes['product-thumb']}`}
-                  src={`../../.${el.categoryImage.desktop}`}
-                  alt={el.name}
-                />
-              }
               <div className={`${classes['product-text__wrapper']}`}>
                 {el.new &&
                   <h4 className={'overline'}>new product</h4>

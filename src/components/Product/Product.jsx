@@ -7,6 +7,7 @@ import classes from './Product.module.css'
 import {cartActions} from "../../store/cartSlice"
 import Counter from "../UI/Counter/Counter"
 import useWindowDimensions from "../../utils/window"
+import {counterActions} from "../../store/counterSlice"
 
 const Product = () => {
   let {width} = useWindowDimensions()
@@ -30,6 +31,7 @@ const Product = () => {
       }
     ))
     dispatch(cartActions.updateTotalPrice())
+    dispatch(counterActions.resetCounter())
   }
 
   useEffect(() => {
@@ -48,9 +50,9 @@ const Product = () => {
     <Fragment>
 
       <section className={`${classes['product-section']}`}>
-      <div
-        className={`${classes['link-back']}`}
-      >
+        <div
+          className={`${classes['link-back']}`}
+        >
         <Link to={-1}>
           Go Back
         </Link>

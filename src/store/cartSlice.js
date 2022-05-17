@@ -8,7 +8,7 @@ const initialCartState = {
 
 const cartSlice = createSlice({
   name: 'cart',
-  initialState: initialCartState,
+  initialState: JSON.parse(localStorage.getItem('cart')) || initialCartState,
   reducers: {
     resetCart: function(state, action) {
       return initialCartState
@@ -47,7 +47,7 @@ const cartSlice = createSlice({
       let total = 0
       state.items.map(el => (total = total + (el.quantity * el.price)) )
       state.totalPrice = total
-    },
+    }
   }
 })
 

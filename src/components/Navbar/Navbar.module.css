@@ -80,6 +80,30 @@
   top: 10vh;
 }
 
+.badge {
+  position: absolute;
+  color: var(--white);
+  left: 0;
+  top: 0;
+  height: 16px;
+  min-width: 16px;
+  font-weight: bold;
+  transform: translate(70%, -50%);
+  border-radius: 8px;
+  padding: 1px 4px;
+  background-color: var(--orange);
+  animation: fadeIn .3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .nav-list {
     width: 689px;

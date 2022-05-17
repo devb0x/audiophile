@@ -9,6 +9,7 @@ import iconCart from '../../assets/shared/desktop/icon-cart.svg'
 import logo from '../../assets/shared/desktop/logo.svg'
 import iconHamburger from '../../assets/shared/tablet/icon-hamburger.svg'
 import CategoriesList from "../CategoriesList/CategoriesList"
+import {useSelector} from "react-redux"
 
 function CustomLink({ children, to}) {
   let resolved = useResolvedPath(to);
@@ -29,6 +30,8 @@ function CustomLink({ children, to}) {
 
 const Navbar = () => {
   const [navMobile, setNavMobile] = useState(false)
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
+
 
   const toggleNav = () => {
     setNavMobile(!navMobile)
@@ -83,6 +86,9 @@ const Navbar = () => {
           <li className={`${classes['nav-list__item']}`}>
             <CartButton>
               <img src={iconCart} alt=""/>
+              {totalQuantity > 0 &&
+                <span className={`${classes['badge']}`}>{totalQuantity}</span>
+              }
             </CartButton>
           </li>
         </ul>

@@ -15,6 +15,9 @@ const counterSlice = createSlice({
       if (state.counter > 1) {
         state.counter--
       }
+    },
+    resetCounter: function (state, action) {
+      state.counter = 1
     }
   }
 })

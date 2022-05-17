@@ -6,7 +6,6 @@ import {cartActions} from "../../../store/cartSlice"
 import Button from "../Button/Button"
 import {Link} from "react-router-dom"
 import {uiActions} from "../../../store/uiSlice"
-import store from "../../../store"
 
 const Cart = () => {
   const dispatch = useDispatch()
