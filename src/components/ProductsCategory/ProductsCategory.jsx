@@ -18,7 +18,7 @@ const ProductsCategory = () => {
       console.warn('wrong page, redirection to homepage')
       navigate('/homepage')
     }
-  }, [products])
+  }, [products, navigate])
 
   return (
     <section className={`${classes['category-section']}`}>

@@ -69,21 +69,30 @@ const Footer = () => {
                   href={"https://www.facebook.com/"}
                   target="_blank" rel="noreferrer"
                   className={`${classes['footer-social__list-icon']} ${classes['fb']}`}
-                />
+                  aria-label="facebook"
+                >
+                  <p aria-hidden="true">facebook</p>
+                </a>
               </li>
               <li>
                 <a
                   href={"https://twitter.com"}
                   target="_blank" rel="noreferrer"
                   className={`${classes['footer-social__list-icon']} ${classes['twitter']}`}
-                />
+                  aria-label="twitter"
+                >
+                  <p aria-hidden="true">twitter</p>
+                </a>
               </li>
               <li>
                 <a
                   href="https://instagram.com"
                   target="_blank" rel="noreferrer"
                   className={`${classes['footer-social__list-icon']} ${classes['insta']}`}
-                />
+                  aria-label="instagram"
+                >
+                  <p aria-hidden="true">instagram</p>
+                </a>
               </li>
             </ul>
           </div>

@@ -1,7 +1,6 @@
 import React from "react"
 
 import classes from './CompanyBanner.module.css'
-import companyImg from "../../assets/shared/mobile/image-best-gear.jpg"
 
 const CompanyBanner = () => {
 
