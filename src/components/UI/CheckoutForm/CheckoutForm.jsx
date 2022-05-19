@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react"
+import React, {Fragment, useState} from "react"
 import {Link} from "react-router-dom"
 
 import {useForm} from "react-hook-form"
@@ -20,8 +20,6 @@ const CheckoutForm = () => {
   const {
     register,
     handleSubmit,
-    watch,
-    setError,
     formState: { errors },
   } = useForm({
     mode: 'onChange',
@@ -44,16 +42,16 @@ const CheckoutForm = () => {
     setShowModal(true)
   }
 
-  useEffect(() => {
-    const subscription = watch((value, { name, type}) => {
-      // console.log(value, name, type)
-      // console.warn(errors?.name)
-    })
-
-    return () => (
-      subscription.unsubscribe()
-    )
-  }, [watch])
+  // useEffect(() => {
+  //   const subscription = watch((value, { name, type}) => {
+  //     // console.log(value, name, type)
+  //     // console.warn(errors?.name)
+  //   })
+  //
+  //   return () => (
+  //     subscription.unsubscribe()
+  //   )
+  // }, [watch])
 
   return (
     <Fragment>

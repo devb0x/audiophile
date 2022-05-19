@@ -22,7 +22,7 @@ const cartSlice = createSlice({
         console.log('new item added')
         state.totalQuantity = state.totalQuantity + action.payload.quantity
       } else {
-        console.log('existing item quantity updated')
+        console.log('item already in cart, quantity updated')
         existingItem.quantity = newItem.quantity + existingItem.quantity
         state.totalQuantity = state.totalQuantity + action.payload.quantity
       }

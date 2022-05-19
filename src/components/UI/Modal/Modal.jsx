@@ -1,14 +1,21 @@
 import React, {Fragment} from "react"
 import {Link} from "react-router-dom"
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
 
 import checkoutIcon from '../../../assets/shared/desktop/checkout.svg'
 import classes from './Modal.module.css'
+import {cartActions} from "../../../store/cartSlice"
 
 const Modal = () => {
+  const dispatch = useDispatch()
+
   const mainItem = useSelector(state => state.cart.items[0])
   const numberOtherItems = useSelector(state => state.cart.items.length - 1)
   const grandTotal = useSelector(state => state.cart.totalPrice)
+
+  const resetCart = () => {
+    dispatch(cartActions.resetCart())
+  }
 
   return (
     <div className={`${classes['background']}`}>
@@ -74,6 +81,7 @@ const Modal = () => {
           <Link
             className={'btn-link'}
             to={'/homepage'}
+            onClick={resetCart}
           >
             back to home
           </Link>

@@ -4,8 +4,6 @@
   position: fixed;
   inset: 0;
   background-color: rgba(0, 0, 0, .4);
-  /*background-color: black;*/
-  /*opacity: .4;*/
   z-index: 100;
 }
 

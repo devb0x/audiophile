@@ -1,20 +1,15 @@
-import React from "react"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons"
-
+import React, {useEffect} from "react"
 
 import classes from './CategoriesList.module.css'
 
 import headphonesThumb from '../../assets/shared/desktop/image-category-thumbnail-headphones.png'
 import speakerThumb from '../../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import earphonesThumb from '../../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import arrowRight from '../../assets/shared/desktop/icon-arrow-right.svg'
 
 import {Link} from "react-router-dom"
 
-
-
-const CategoriesList = () => {
-  // TODO add chevron arrow
+const CategoriesList = (props) => {
 
   return (
     <section className={`${classes['categories-section']}`}>
@@ -22,8 +17,11 @@ const CategoriesList = () => {
       <div className={`${classes['categories-container']}`}>
         <div className={`${classes['category-card']}`}>
           <Link
-            className={` btn-link ${classes['category-section__link']}`}
-            to={'/headphones'}
+            className={`${classes['category-section__link']} btn-link`}
+            to={'/products/headphones'}
+            onClick={() => {
+              props.show(false)
+            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
@@ -34,12 +32,11 @@ const CategoriesList = () => {
             </header>
             <div className={`${classes['wrapper']}`}>
               <h3 className={`${classes['category-title']}`}>Headphones</h3>
-
               <button className={`${classes['btn']} btn-transparent`}>
-                  shop
-                  <span>
-                  <FontAwesomeIcon icon={faChevronRight} className={`${classes['chevron-right']}`}/>
-                  </span>
+                shop
+                <span style={{display: 'flex', margin: 'auto'}}>
+                  <img src={arrowRight} alt="arrow right" className={`${classes['chevron-right']}`}/>
+                </span>
               </button>
             </div>
           </Link>
@@ -47,8 +44,11 @@ const CategoriesList = () => {
 
         <div className={`${classes['category-card']}`}>
           <Link
-            className={`${classes['category-section__link']}  btn-link`}
-            to={'/speakers'}
+            className={`${classes['category-section__link']} btn-link`}
+            to={'/products/speakers'}
+            onClick={() => {
+              props.show(false)
+            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
@@ -60,11 +60,10 @@ const CategoriesList = () => {
             <div className={`${classes['wrapper']}`}>
               <h3 className={`${classes['category-title']}`}>speakers</h3>
               <button className={`${classes['btn']} btn-transparent`}>
-                  shop
-                  <span>
-                  <FontAwesomeIcon icon={faChevronRight} className={`${classes['chevron-right']}`}/>
-
-                 </span>
+                shop
+                <span style={{display: 'flex', margin: 'auto'}}>
+                  <img src={arrowRight} alt="arrow right" className={`${classes['chevron-right']}`}/>
+                </span>
               </button>
             </div>
           </Link>
@@ -72,8 +71,11 @@ const CategoriesList = () => {
 
         <div className={`${classes['category-card']}`}>
           <Link
-            className={`${classes['category-section__link']}  btn-link`}
-            to={'/earphones'}
+            className={`${classes['category-section__link']} btn-link`}
+            to={'/products/earphones'}
+            onClick={() => {
+              props.show(false)
+            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
@@ -85,16 +87,15 @@ const CategoriesList = () => {
             <div className={`${classes['wrapper']}`}>
               <h3 className={`${classes['category-title']}`}>earphones</h3>
               <button className={`${classes['btn']} btn-transparent`}>
-                  shop
-                  <span>
-                  <FontAwesomeIcon icon={faChevronRight} className={`${classes['chevron-right']}`}/>
-                 </span>
+                shop
+                <span style={{display: 'flex', margin: 'auto'}}>
+                  <img src={arrowRight} alt="arrow right" className={`${classes['chevron-right']}`}/>
+                </span>
               </button>
             </div>
           </Link>
         </div>
       </div>
-
 
     </section>
   )

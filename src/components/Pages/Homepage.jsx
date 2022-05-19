@@ -2,13 +2,13 @@ import React from "react"
 import {Link} from "react-router-dom"
 
 import classes from './Homepage.module.css'
+import patternCircle from '../../assets/home/desktop/pattern-circles.svg'
 
 import Hero from "../Hero/Hero"
 import CategoriesList from "../CategoriesList/CategoriesList"
 import Button from "../UI/Button/Button"
 import CompanyBanner from "../CompanyBanner/CompanyBanner"
 
-import patternCircle from '../../assets/home/desktop/pattern-circles.svg'
 
 const Homepage = () => {
 
@@ -33,7 +33,7 @@ const Homepage = () => {
               Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
             </div>
             <Button class={'btn-black__plain'}>
-              <Link to={'/speakers/zx9-speaker'} className={'btn-link'}>
+              <Link to={'/products/speakers/zx9-speaker'} className={'btn-link'}>
                 see product
               </Link>
             </Button>
@@ -45,7 +45,7 @@ const Homepage = () => {
             ZX7 Speaker
           </h3>
           <Button class={'btn-black'}>
-            <Link to={'/speakers/zx7-speaker'} className={'btn-link'}>
+            <Link to={'/products/speakers/zx7-speaker'} className={'btn-link'}>
               see product
             </Link>
           </Button>
@@ -59,7 +59,7 @@ const Homepage = () => {
               YX1 Earphones
             </h3>
             <Button class={'btn-black'}>
-              <Link to={'/earphones/yx1-earphones'} className={'btn-link'}>
+              <Link to={'/products/earphones/yx1-earphones'} className={'btn-link'}>
                 see product
               </Link>
             </Button>

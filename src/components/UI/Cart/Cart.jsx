@@ -1,11 +1,12 @@
 import React, {Fragment, useEffect, useState} from "react"
 import {useDispatch, useSelector} from "react-redux"
+import {Link} from "react-router-dom"
+
+import {cartActions} from "../../../store/cartSlice"
+import {uiActions} from "../../../store/uiSlice"
 
 import classes from './Cart.module.css'
-import {cartActions} from "../../../store/cartSlice"
 import Button from "../Button/Button"
-import {Link} from "react-router-dom"
-import {uiActions} from "../../../store/uiSlice"
 
 const Cart = () => {
   const dispatch = useDispatch()

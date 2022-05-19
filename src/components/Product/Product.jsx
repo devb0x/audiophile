@@ -1,4 +1,4 @@
-import React, {Fragment, useEffect, useState} from "react"
+import React, {Fragment} from "react"
 import {useDispatch, useSelector} from "react-redux"
 
 import {useParams, Link} from "react-router-dom"
@@ -6,13 +6,10 @@ import {useParams, Link} from "react-router-dom"
 import classes from './Product.module.css'
 import {cartActions} from "../../store/cartSlice"
 import Counter from "../UI/Counter/Counter"
-import useWindowDimensions from "../../utils/window"
 import {counterActions} from "../../store/counterSlice"
 
 const Product = () => {
-  let {width} = useWindowDimensions()
   let {slug} = useParams()
-  const [device, setDevice] = useState('')
 
   const quantity = useSelector(state => state.counter)
   const getProducts = useSelector(state => state.products)
@@ -34,18 +31,6 @@ const Product = () => {
     dispatch(counterActions.resetCounter())
   }
 
-  useEffect(() => {
-    if (width < 768) {
-      setDevice('mobile')
-    }
-    if (width > 767 && width < 1440) {
-      setDevice('tablet')
-    }
-    if (width > 1439) {
-      setDevice('desktop')
-    }
-  }, [width, device])
-
   return (
     <Fragment>
 
@@ -58,28 +43,13 @@ const Product = () => {
         </Link>
       </div>
         <header className={`${classes['product-header']}`}>
-          {device === 'mobile' &&
-            <img
-            className={`${classes['product-image']}`}
-            src={`../../.${item[0].image.mobile}`}
-            alt={item[0].name}
-          />
-          }
-          {device === 'tablet' &&
-            <img
-              className={`${classes['product-image']}`}
-              src={`../../.${item[0].image.tablet}`}
-              alt={item[0].name}
-            />
-          }
-          {device === 'desktop' &&
-            <img
-              className={`${classes['product-image']}`}
-              src={`../../.${item[0].image.desktop}`}
-              alt={item[0].name}
-            />
-          }
+          <picture>
+            <source srcSet={`../../.${item[0].image.desktop}`} media="(min-width: 1440px)" />
+            <source srcSet={`../../.${item[0].image.tablet}`} media="(min-width: 768px)" />
+            <img src={`../../.${item[0].image.mobile}`} alt={item[0].name} className={`${classes['product-image']}`} />
+          </picture>
         </header>
+
         <div className={`${classes['product-wrapper']}`}>
           {item[0].new &&
             <h4 className={'overline'}>new product</h4>
@@ -107,13 +77,13 @@ const Product = () => {
           </div>
         </div>
 
-
         <div className={`${classes['product-features']}`}>
           <h3 className={`${classes['product-features__title']}`}>Features</h3>
           <div className={`${classes['product-features__text']}`}>
             {item[0].features}
           </div>
         </div>
+
         <div className={`${classes['product-includes']}`}>
           <h3 className={`${classes['product-includes__title']}`}>In the box</h3>
             <ul >
@@ -125,72 +95,39 @@ const Product = () => {
               ))}
             </ul>
         </div>
-        {device === 'mobile' &&
-          <div className={`${classes['product-gallery']}`}>
-            <div className={`${classes['product-gallery__1']}`}>
+
+        <div className={`${classes['product-gallery']}`}>
+          <div className={`${classes['product-gallery__1']}`}>
+            <picture>
+              <source srcSet={`../../.${item[0].gallery.first.desktop}`} media="(min-width: 1440px)" />
+              <source srcSet={`../../.${item[0].gallery.first.tablet}`} media="(min-width: 768px)" />
               <img
                 src={`../../.${item[0].gallery.first.mobile}`}
                 alt=""
               />
-            </div>
-            <div className={`${classes['product-gallery__2']}`}>
+            </picture>
+          </div>
+          <div className={`${classes['product-gallery__2']}`}>
+            <picture>
+              <source srcSet={`../../.${item[0].gallery.second.desktop}`} media="(min-width: 1440px)" />
+              <source srcSet={`../../.${item[0].gallery.second.tablet}`} media="(min-width: 768px)" />
               <img
                 src={`../../.${item[0].gallery.second.mobile}`}
                 alt=""
               />
-            </div>
-            <div className={`${classes['product-gallery__3']}`}>
+            </picture>
+          </div>
+          <div className={`${classes['product-gallery__3']}`}>
+            <picture>
+              <source srcSet={`../../.${item[0].gallery.third.desktop}`} media="(min-width: 1440px)" />
+              <source srcSet={`../../.${item[0].gallery.third.tablet}`} media="(min-width: 768px)" />
               <img
                 src={`../../.${item[0].gallery.third.mobile}`}
                 alt=""
               />
-            </div>
+            </picture>
           </div>
-        }
-        {device === 'tablet' &&
-          <div className={`${classes['product-gallery']}`}>
-            <div className={`${classes['product-gallery__1']}`}>
-              <img
-                src={`../../.${item[0].gallery.first.tablet}`}
-                alt=""
-              />
-            </div>
-            <div className={`${classes['product-gallery__2']}`}>
-              <img
-                src={`../../.${item[0].gallery.second.tablet}`}
-                alt=""
-              />
-            </div>
-            <div className={`${classes['product-gallery__3']}`}>
-              <img
-                src={`../../.${item[0].gallery.third.tablet}`}
-                alt=""
-              />
-            </div>
-          </div>
-        }
-        {device === 'desktop' &&
-          <div className={`${classes['product-gallery']}`}>
-            <div className={`${classes['product-gallery__1']}`}>
-              <img
-                src={`../../.${item[0].gallery.first.desktop}`}
-                alt=""
-              />
-            </div>
-            <div className={`${classes['product-gallery__2']}`}>
-              <img
-                src={`../../.${item[0].gallery.second.desktop}`}
-                alt=""
-              />
-            </div>
-            <div className={`${classes['product-gallery__3']}`}>
-              <img
-                src={`../../.${item[0].gallery.third.desktop}`}
-                alt=""
-              />
-            </div>
-          </div>
-        }
+        </div>
       </section>
     </Fragment>
   )

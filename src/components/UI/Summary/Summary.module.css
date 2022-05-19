@@ -17,10 +17,6 @@
   margin: 0;
 }
 
-.summary-list {
-  /*outline: 1px solid red;*/
-}
-
 .list-item {
   display: grid;
   grid-template-columns: 64px auto 20px;

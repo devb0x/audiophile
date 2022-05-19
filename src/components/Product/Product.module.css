@@ -113,18 +113,16 @@
 }
 
 .product-gallery__1, .product-gallery__2 {
-  width: var(--mobile);
   height: 174px;
 }
 
 .product-gallery__3 {
-  width: var(--mobile);
   height: 368px;
 }
 
-.product-gallery__1 > img,
-.product-gallery__2 > img,
-.product-gallery__3 > img {
+.product-gallery__1 > picture > img,
+.product-gallery__2 > picture > img,
+.product-gallery__3 > picture > img {
   border-radius: 8px;
   width: 100%;
   height: 100%;

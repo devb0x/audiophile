@@ -26,9 +26,10 @@
 }
 
 .product-thumb {
+  display: flex;
+  margin-inline: auto;
   height: 352px;
-  width: 100%;
-  object-fit: contain;
+  border-radius: 8px;
 }
 
 .product-text__wrapper {

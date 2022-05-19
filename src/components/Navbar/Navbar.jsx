@@ -1,15 +1,14 @@
-import React, {Fragment, useEffect, useState} from "react"
+import React, {Fragment, useState} from "react"
 import {Link, useMatch, useResolvedPath} from "react-router-dom"
+import {useSelector} from "react-redux"
 
 import classes from './Navbar.module.css'
-
-import CartButton from "../UI/CartButton/CartButton"
-
 import iconCart from '../../assets/shared/desktop/icon-cart.svg'
 import logo from '../../assets/shared/desktop/logo.svg'
 import iconHamburger from '../../assets/shared/tablet/icon-hamburger.svg'
+
+import CartButton from "../UI/CartButton/CartButton"
 import CategoriesList from "../CategoriesList/CategoriesList"
-import {useSelector} from "react-redux"
 
 function CustomLink({ children, to}) {
   let resolved = useResolvedPath(to);
@@ -31,7 +30,6 @@ function CustomLink({ children, to}) {
 const Navbar = () => {
   const [navMobile, setNavMobile] = useState(false)
   const totalQuantity = useSelector(state => state.cart.totalQuantity)
-
 
   const toggleNav = () => {
     setNavMobile(!navMobile)
@@ -61,7 +59,7 @@ const Navbar = () => {
           </li>
           <li className={`${classes['nav-list__item-desktop']}`}>
             <CustomLink
-              to={'/headphones'}
+              to={'/products/headphones'}
               className={`${classes['nav-list__item-link']}`}
             >
               headphones
@@ -69,7 +67,7 @@ const Navbar = () => {
           </li>
           <li className={`${classes['nav-list__item-desktop']}`}>
             <CustomLink
-              to={'/speakers'}
+              to={'/products/speakers'}
               className={`${classes['nav-list__item-link']}`}
             >
               speakers
@@ -77,7 +75,7 @@ const Navbar = () => {
           </li>
           <li className={`${classes['nav-list__item-desktop']}`}>
             <CustomLink
-              to={'/earphones'}
+              to={'/products/earphones'}
               className={`${classes['nav-list__item-link']}`}
             >
               earphones
@@ -95,8 +93,8 @@ const Navbar = () => {
       </nav>
 
       {navMobile &&
-        <div className={`${classes['nav']} ${classes['mobile']}`}>>
-          <CategoriesList />
+        <div className={`${classes['nav']} ${classes['mobile']}`}>
+          <CategoriesList show={toggleNav} />
           <div className={`${classes['background']}`} onClick={toggleNav}/>
         </div>
       }

@@ -1,8 +1,7 @@
-import React, {UseEffact, Fragment, useEffect} from "react"
+import React, {Fragment, useEffect} from "react"
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom"
 
 import {useSelector} from "react-redux"
-
 
 import './App.css'
 
@@ -26,11 +25,9 @@ function App() {
    */
   useEffect(() => {
     if (!localCart) {
-      console.warn('cart null => created')
       localStorage.setItem('cart', JSON.stringify(cart))
     }
     if (localCart) {
-      console.warn('cart already exist')
       localStorage.setItem('cart', JSON.stringify(cart))
     }
   }, [localCart, cart])
@@ -52,15 +49,14 @@ function App() {
               <Homepage />
             }
           />
-
           <Route
-            exact path={'/:category'}
+            exact path={'/products/:category'}
             element={
               <CategoryPage />
             }
           />
           <Route
-            exact path={'/:category/:slug'}
+            exact path={'/products/:category/:slug'}
             element={
               <ProductPage />
             }
@@ -70,6 +66,10 @@ function App() {
             element={
               <CheckoutPage />
             }
+          />
+          <Route
+            path={'*'}
+            element={ <Navigate to="/homepage" /> }
           />
           </Routes>
           <Footer />

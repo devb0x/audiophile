@@ -1,13 +1,10 @@
 import React from "react"
-import {useDispatch, useSelector} from "react-redux"
+import {useSelector} from "react-redux"
 
 import classes from './Summary.module.css'
 
 const Summary = () => {
-  const dispatch = useDispatch()
-
   const cartItems = useSelector(state => state.cart.items)
-  const totalQuantity = useSelector(state => state.cart.totalQuantity)
   const totalPrice = useSelector(state => state.cart.totalPrice)
 
   return (

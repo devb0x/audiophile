@@ -29,7 +29,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={'/headphones'}
+                to={'/products/headphones'}
                 className={`${classes['nav-list__item-link']}`}
               >
                 headphones
@@ -37,7 +37,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={'/speakers'}
+                to={'/products/speakers'}
                 className={`${classes['nav-list__item-link']}`}
               >
                 speakers
@@ -45,7 +45,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                to={'/earphones'}
+                to={'/products/earphones'}
                 className={`${classes['nav-list__item-link']}`}
               >
                 earphones

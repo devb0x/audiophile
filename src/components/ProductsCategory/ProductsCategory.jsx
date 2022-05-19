@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import {Link, useParams, useNavigate} from "react-router-dom"
 
 import {useSelector} from "react-redux"
@@ -6,33 +6,19 @@ import {useSelector} from "react-redux"
 import classes from './ProductsCategory.module.css'
 import Button from "../UI/Button/Button"
 
-import useWindowDimensions from "../../utils/window"
-
 const ProductsCategory = () => {
-  let {width} = useWindowDimensions()
   let navigate = useNavigate()
   let {category} = useParams()
-
-  const [device, setDevice] = useState('')
 
   const getAll = useSelector(state => state.products)
   const products = getAll.filter(el => el.category === category)
 
   useEffect(() => {
-    if (width < 768) {
-      setDevice('mobile')
-    }
-    if (width > 767 && width < 1440) {
-      setDevice('tablet')
-    }
-    if (width > 1439) {
-      setDevice('desktop')
-    }
     if (products.length === 0) {
       console.warn('wrong page, redirection to homepage')
       navigate('/homepage')
     }
-  }, [width, device])
+  }, [products])
 
   return (
     <section className={`${classes['category-section']}`}>
@@ -59,7 +45,7 @@ const ProductsCategory = () => {
                 <Button class={'btn'}>
                   <Link
                     className={`btn-link`}
-                    to={`/${el.category}/${el.slug}`}
+                    to={`/products/${el.category}/${el.slug}`}
                   >
                     see product
                   </Link>
@@ -72,7 +58,6 @@ const ProductsCategory = () => {
 
     </section>
   )
-
 }
 
 export default ProductsCategory

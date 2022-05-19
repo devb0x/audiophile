@@ -57,7 +57,7 @@ const Hero = () => {
             <Button class={'btn'}>
               <Link
                 className={`btn-link`}
-                to={`/headphones/${mainProduct[0].slug}`}
+                to={`/products/headphones/${mainProduct[0].slug}`}
               >
                 See Product
               </Link>
