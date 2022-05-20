@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import {Link} from "react-router-dom"
 
 import classes from './Homepage.module.css'
@@ -13,7 +13,7 @@ import CompanyBanner from "../CompanyBanner/CompanyBanner"
 const Homepage = () => {
 
   return (
-    <div>
+    <Fragment>
       <Hero />
       <CategoriesList />
 
@@ -70,7 +70,7 @@ const Homepage = () => {
       </section>
 
       <CompanyBanner />
-    </div>
+    </Fragment>
   )
 }
 

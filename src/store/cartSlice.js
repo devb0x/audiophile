@@ -3,7 +3,8 @@ import {createSlice} from "@reduxjs/toolkit"
 const initialCartState = {
   items: [],
   totalQuantity: 0,
-  totalPrice: 0
+  totalPrice: 0,
+  isValid: false
 }
 
 const cartSlice = createSlice({
@@ -13,16 +14,17 @@ const cartSlice = createSlice({
     resetCart: function(state, action) {
       return initialCartState
     },
+    setValidCart: function(state, action) {
+      state.isValid = action.payload
+    },
     addItemToCart: function(state, action) {
       const newItem = action.payload
       const existingItem = state.items.find((item) => item.id === action.payload.id)
 
       if (!existingItem) {
         state.items.push(newItem)
-        console.log('new item added')
         state.totalQuantity = state.totalQuantity + action.payload.quantity
       } else {
-        console.log('item already in cart, quantity updated')
         existingItem.quantity = newItem.quantity + existingItem.quantity
         state.totalQuantity = state.totalQuantity + action.payload.quantity
       }

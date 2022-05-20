@@ -1,12 +1,11 @@
 import React, {Fragment, useState} from "react"
 import {Link} from "react-router-dom"
-
 import {useForm} from "react-hook-form"
 
 import classes from './CheckoutForm.module.css'
-import Summary from "../Summary/Summary"
-
 import iconCash from '../../../assets/shared/desktop/icon-cash.svg'
+
+import Summary from "../Summary/Summary"
 import Modal from "../Modal/Modal"
 
 const CheckoutForm = () => {
@@ -41,17 +40,6 @@ const CheckoutForm = () => {
     document.activeElement.blur()
     setShowModal(true)
   }
-
-  // useEffect(() => {
-  //   const subscription = watch((value, { name, type}) => {
-  //     // console.log(value, name, type)
-  //     // console.warn(errors?.name)
-  //   })
-  //
-  //   return () => (
-  //     subscription.unsubscribe()
-  //   )
-  // }, [watch])
 
   return (
     <Fragment>

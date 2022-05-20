@@ -1,11 +1,25 @@
-import React from "react"
-import {useSelector} from "react-redux"
+import React, {useEffect} from "react"
+import {useDispatch, useSelector} from "react-redux"
 
 import classes from './Summary.module.css'
+import {cartActions} from "../../../store/cartSlice"
 
 const Summary = () => {
+  const dispatch = useDispatch()
+
   const cartItems = useSelector(state => state.cart.items)
   const totalPrice = useSelector(state => state.cart.totalPrice)
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
+  const cartValid = useSelector(state => state.cart.isValid)
+
+  useEffect(() => {
+    if (totalQuantity > 0) {
+      dispatch(cartActions.setValidCart(true))
+    }
+    if (totalQuantity < 1) {
+      dispatch(cartActions.setValidCart(false))
+    }
+  }, [totalQuantity, dispatch])
 
   return (
     <div className={`${classes['summary']}`}>
@@ -53,6 +67,7 @@ const Summary = () => {
       </div>
 
       <button
+        disabled={!cartValid}
         className={`${classes['summary-btn']}`}
         form='checkout-form'
         type="submit"

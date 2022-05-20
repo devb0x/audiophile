@@ -1,9 +1,6 @@
 import React, {Fragment, useEffect} from "react"
 import {BrowserRouter as Router, Routes, Route, Navigate} from "react-router-dom"
-
 import {useSelector} from "react-redux"
-
-import './App.css'
 
 import Navbar from "./components/Navbar/Navbar"
 import Homepage from "./components/Pages/Homepage"
@@ -13,6 +10,7 @@ import Cart from "./components/UI/Cart/Cart"
 import Footer from "./components/Footer/Footer"
 import CheckoutPage from "./components/Pages/CheckoutPage"
 import ScrollToTop from "./components/ScrollToTop"
+import NotFound from "./components/NotFound/NotFound"
 
 function App() {
   const cart = useSelector((state) => state.cart)
@@ -40,32 +38,36 @@ function App() {
         {showCart && <Cart /> }
         <Routes>
           <Route
-            exact path={'/'}
+            path={'/'}
             element={ <Navigate to="/homepage" /> }
           />
           <Route
-            exact path={'/homepage'}
+            path={'/homepage'}
             element={
               <Homepage />
             }
           />
           <Route
-            exact path={'/products/:category'}
+            path={'/products/:category'}
             element={
               <CategoryPage />
             }
           />
           <Route
-            exact path={'/products/:category/:slug'}
+            path={'/products/:category/:slug'}
             element={
               <ProductPage />
             }
           />
           <Route
-            exact path={'/checkout'}
+            path={'/checkout'}
             element={
               <CheckoutPage />
             }
+          />
+          <Route
+            path={'/404'}
+            element={ <NotFound /> }
           />
           <Route
             path={'*'}

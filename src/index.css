@@ -148,8 +148,6 @@ button {
   color: red;
 }
 
-
-
 @media screen and (min-width: 1440px) {
   .btn-transparent > .btn-link {
     margin-bottom: 30px;

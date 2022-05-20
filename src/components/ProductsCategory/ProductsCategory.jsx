@@ -15,8 +15,7 @@ const ProductsCategory = () => {
 
   useEffect(() => {
     if (products.length === 0) {
-      console.warn('wrong page, redirection to homepage')
-      navigate('/homepage')
+      navigate('/404')
     }
   }, [products, navigate])
 
@@ -29,11 +28,15 @@ const ProductsCategory = () => {
         {products.map((el, index) => (
           <li key={index}>
             <div className={`${classes['product-card']}`}>
-              <img
-                className={`${classes['product-thumb']}`}
-                src={`../../.${el.categoryImage.mobile}`}
-                alt={el.name}
-              />
+              <picture>
+                <source srcSet={`../../.${el.categoryImage.desktop}`} media="(min-width: 1440px)"/>
+                <source srcSet={`../../.${el.categoryImage.tablet}`} media="(min-width: 768px)"/>
+                <img
+                  className={`${classes['product-thumb']}`}
+                  src={`../../.${el.categoryImage.mobile}`}
+                  alt={el.name}
+                />
+              </picture>
               <div className={`${classes['product-text__wrapper']}`}>
                 {el.new &&
                   <h4 className={'overline'}>new product</h4>

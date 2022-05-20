@@ -102,6 +102,11 @@
   background-color: var(--orange2);
 }
 
+.summary-btn:disabled {
+  pointer-events: none;
+  cursor: initial;
+  background-color: var(--orange2);
+}
 
 @media screen and (min-width: 768px) {
   .summary {
