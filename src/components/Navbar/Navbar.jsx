@@ -94,7 +94,9 @@ const Navbar = () => {
 
       {navMobile &&
         <div className={`${classes['nav']} ${classes['mobile']}`}>
-          <CategoriesList show={toggleNav} />
+          <CategoriesList
+            show={toggleNav}
+          />
           <div className={`${classes['background']}`} onClick={toggleNav}/>
         </div>
       }

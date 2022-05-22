@@ -1,4 +1,5 @@
 import React from "react"
+import {Link} from "react-router-dom"
 
 import classes from './CategoriesList.module.css'
 
@@ -7,7 +8,6 @@ import speakerThumb from '../../assets/shared/desktop/image-category-thumbnail-s
 import earphonesThumb from '../../assets/shared/desktop/image-category-thumbnail-earphones.png'
 import arrowRight from '../../assets/shared/desktop/icon-arrow-right.svg'
 
-import {Link} from "react-router-dom"
 
 const CategoriesList = (props) => {
 
@@ -15,13 +15,17 @@ const CategoriesList = (props) => {
     <section className={`${classes['categories-section']}`}>
 
       <div className={`${classes['categories-container']}`}>
-        <div className={`${classes['category-card']}`}>
+        <div
+          className={`${classes['category-card']}`}
+          onClick={() => {
+            if (props.show) {
+              props.show(false)
+            }
+          }}
+        >
           <Link
             className={`${classes['category-section__link']} btn-link`}
             to={'/products/headphones'}
-            onClick={() => {
-              props.show(false)
-            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
@@ -42,13 +46,17 @@ const CategoriesList = (props) => {
           </Link>
         </div>
 
-        <div className={`${classes['category-card']}`}>
+        <div
+          className={`${classes['category-card']}`}
+          onClick={() => {
+            if (props.show) {
+              props.show(false)
+            }
+          }}
+        >
           <Link
             className={`${classes['category-section__link']} btn-link`}
             to={'/products/speakers'}
-            onClick={() => {
-              props.show(false)
-            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
@@ -69,13 +77,17 @@ const CategoriesList = (props) => {
           </Link>
         </div>
 
-        <div className={`${classes['category-card']}`}>
+        <div
+          className={`${classes['category-card']}`}
+          onClick={() => {
+            if (props.show) {
+              props.show(false)
+            }
+          }}
+        >
           <Link
             className={`${classes['category-section__link']} btn-link`}
             to={'/products/earphones'}
-            onClick={() => {
-              props.show(false)
-            }}
           >
             <header className={`${classes['category-header']}`}>
               <img
