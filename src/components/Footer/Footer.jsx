@@ -71,7 +71,7 @@ const Footer = () => {
                   className={`${classes['footer-social__list-icon']} ${classes['fb']}`}
                   aria-label="facebook"
                 >
-                  <p aria-hidden="true">facebook</p>
+                  <p className={`${classes['visually-hidden']}`}>facebook</p>
                 </a>
               </li>
               <li>
@@ -81,7 +81,7 @@ const Footer = () => {
                   className={`${classes['footer-social__list-icon']} ${classes['twitter']}`}
                   aria-label="twitter"
                 >
-                  <p aria-hidden="true">twitter</p>
+                  <p className={`${classes['visually-hidden']}`}>twitter</p>
                 </a>
               </li>
               <li>
@@ -91,7 +91,7 @@ const Footer = () => {
                   className={`${classes['footer-social__list-icon']} ${classes['insta']}`}
                   aria-label="instagram"
                 >
-                  <p aria-hidden="true">instagram</p>
+                  <p className={`${classes['visually-hidden']}`}>instagram</p>
                 </a>
               </li>
             </ul>
