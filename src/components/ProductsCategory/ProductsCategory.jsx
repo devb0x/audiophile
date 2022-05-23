@@ -28,7 +28,7 @@ const ProductsCategory = () => {
         {products.map((el, index) => (
           <li key={index}>
             <div className={`${classes['product-card']}`}>
-              <picture>
+              <picture style={{height: '100%'}}>
                 <source srcSet={`../../.${el.categoryImage.desktop}`} media="(min-width: 1440px)"/>
                 <source srcSet={`../../.${el.categoryImage.tablet}`} media="(min-width: 768px)"/>
                 <img
