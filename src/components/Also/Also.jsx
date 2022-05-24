@@ -11,6 +11,16 @@ const Also = () => {
   let getProducts = useSelector(state => state.products)
   let item = getProducts.filter(el => el.slug === slug)
 
+  // let category = []
+  // for (let i = 0; i < getProducts.length; i++) {
+  //   for (let j = 0; j < item[0].others.length; j++) {
+  //     if (item[0].others[j].slug === getProducts[i].slug) {
+  //       category.push(getProducts[i].category)
+  //     }
+  //   }
+  //   console.log(category)
+  // }
+
   return (
     <section className={`${classes['also-section']}`}>
       <h3 className={`${classes['also-title']}`}>You may also like</h3>
@@ -31,7 +41,7 @@ const Also = () => {
               {el.name}
             </h4>
             <Button class='btn'>
-              <Link className={`btn-link`} to={`/${el.category}/${el.slug}`}>see product</Link>
+              <Link className={`btn-link`} to={`/products/${el.category}/${el.slug}`}>see product</Link>
             </Button>
           </div>
         ))}
